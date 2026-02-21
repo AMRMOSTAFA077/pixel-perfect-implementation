@@ -1,0 +1,48 @@
+{
+  "manifest_version": 3,
+  "name": "iSorter — Instagram Grid Sorter",
+  "version": "1.0.1",
+  "description": "Sort Instagram profile Posts/Reels/Tagged by Likes, Views, Comments, or Oldest (DOM + GraphQL interception).",
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "Icons/16.png",
+      "48": "Icons/48.png",
+      "128": "Icons/128.png"
+    }
+  },
+  "icons": {
+    "16": "Icons/16.png",
+    "48": "Icons/48.png",
+    "128": "Icons/128.png"
+  },
+  "permissions": ["storage", "tabs", "activeTab"],
+  "host_permissions": ["https://www.instagram.com/*"],
+  "content_scripts": [
+    {
+      "matches": ["https://www.instagram.com/*"],
+      "run_at": "document_start",
+      "css": ["Animate/animate.css"],
+      "js": [
+        "Instagram/init_sortfeed_instagram.js",
+        "Instagram/inject_instagram_script.js",
+        "Instagram/auto_scroll.js",
+        "Instagram/show_overlay_banner.js",
+        "Instagram/banner_on_insta.js"
+      ]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "Instagram/script_instagram.js",
+        "Icons/*.png",
+        "Icons/*.svg",
+        "Icons/*/*.png",
+        "Icons/*/*.svg",
+        "Icons/*/*/*.png"
+      ],
+      "matches": ["https://www.instagram.com/*"]
+    }
+  ]
+}

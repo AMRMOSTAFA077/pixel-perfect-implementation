@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>iSorter</title>
+  <link rel="stylesheet" type="text/css" href="Animate/animate.css" />
+  <link rel="stylesheet" href="popup_styles/popup_subs.css" />
+  <link rel="stylesheet" href="popup_styles/popup.css" />
+</head>
+<body>
+  <div class="main_div animate__animated animate__zoomIn">
+    <div class="chrome">
+      <div class="header">
+        <div style="display:flex;">
+          <img id="image_logo" class="image_logo animate__animated animate__bounceInDown" src="Icons/isorterLogo.svg" />
+          <h1 class="heading">iSorter</h1>
+        </div>
+        <span class="beta">Free</span>
+      </div>
+
+      <!-- Instagram Sort by date vs items -->
+      <div class="InstaMain">
+        <div class="main_nav_div">
+          <div class="segmented-control">
+            <button class="itemButtonClass" id="itemButton">Sort by Items</button>
+            <button class="dateRangeButtonClass" id="dateRangeButton">Sort by Date</button>
+          </div>
+
+          <div class="nav_button_div_one">
+            <select class="drop_down" id="no_items_selected" active="on">
+              <option value="50_reels">Latest 50 Items</option>
+              <option value="100_reels" selected>Latest 100 Items</option>
+              <option value="200_reels">Latest 200 Items</option>
+              <option value="500_reels">Latest 500 Items</option>
+              <option value="1000_reels">Latest 1000 Items</option>
+              <option value="2000_reels">Latest 2000 Items</option>
+              <option value="all_reels">All Items</option>
+            </select>
+
+            <select class="drop_down_dates" id="dates_selected" active="off" style="display:none;">
+              <option value="1_week" selected>Posts from 1 Week Back</option>
+              <option value="1_month">Posts from 1 Month Back</option>
+              <option value="3_month">Posts from 3 Months Back</option>
+              <option value="6_month">Posts from 6 Months Back</option>
+              <option value="1_year">Posts from 1 Year Back</option>
+              <option value="all_reels">All Items</option>
+            </select>
+
+            <label class="OnlyWorksPosts" id="OnlyWorksPosts" style="display:none;">Only works on Posts</label>
+          </div>
+        </div>
+
+        <!-- Instagram Likes, Views, Comments, Oldest -->
+        <div class="insta_tiktok_menus" style="padding: 0 15px;">
+          <div style="display:flex; flex-direction:column; justify-content:flex-start; width:71%; margin:10px 0 3px;"></div>
+
+          <div id="insta_sort_menu" class="buttonMainDiv">
+            <button id="sortLikesClick" class="SortButtonMain">
+              <div style="display:flex; width:100%; align-items:center;">
+                <img src="Icons/ButtonIcons/LoveGrey.svg" style="width:11px; margin-right:10px;" />
+                <span>Likes</span>
+              </div>
+            </button>
+
+            <button id="sortViewsClick" class="SortButtonMain">
+              <div style="display:flex; width:100%; align-items:center;">
+                <img src="Icons/ButtonIcons/play.svg" style="width:10px; margin-right:11px;" />
+                <span>Views</span>
+              </div>
+            </button>
+
+            <button id="sortCommentsClick" class="SortButtonMain">
+              <div style="display:flex; width:100%; align-items:center;">
+                <img src="Icons/ButtonIcons/ChatGrey.svg" style="width:11px; margin-right:10px;" />
+                <span>Comments</span>
+              </div>
+            </button>
+
+            <button id="sortOldestClicks" class="SortButtonMain">
+              <div style="display:flex; width:100%; align-items:center;">
+                <img src="Icons/ButtonIcons/SortFeedOld.svg" style="width:11px; margin-right:10px;" />
+                <span>Oldest</span>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        <div style="padding: 0 15px 12px;">
+          <div id="statusText" style="font-size:12px; color:#111; opacity:0.75;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
