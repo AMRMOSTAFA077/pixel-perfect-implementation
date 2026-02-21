@@ -1,1 +1,16 @@
 project_id = "wkklhohvphhebksbijnm"
+
+[functions.bootstrap]
+verify_jwt = false
+
+[functions.items-save]
+verify_jwt = false
+
+[functions.thumbnail-upload]
+verify_jwt = false
+
+[functions.share-create]
+verify_jwt = false
+
+[functions.share-resolve]
+verify_jwt = false

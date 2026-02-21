@@ -14,13 +14,217 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      board_items: {
+        Row: {
+          added_at: string
+          board_id: string
+          id: string
+          media_item_id: string
+        }
+        Insert: {
+          added_at?: string
+          board_id: string
+          id?: string
+          media_item_id: string
+        }
+        Update: {
+          added_at?: string
+          board_id?: string
+          id?: string
+          media_item_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "board_items_board_id_fkey"
+            columns: ["board_id"]
+            isOneToOne: false
+            referencedRelation: "boards"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "board_items_media_item_id_fkey"
+            columns: ["media_item_id"]
+            isOneToOne: false
+            referencedRelation: "media_items"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      boards: {
+        Row: {
+          created_at: string
+          id: string
+          name: string
+          updated_at: string
+          workspace_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          name?: string
+          updated_at?: string
+          workspace_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          name?: string
+          updated_at?: string
+          workspace_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "boards_workspace_id_fkey"
+            columns: ["workspace_id"]
+            isOneToOne: false
+            referencedRelation: "workspaces"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      media_items: {
+        Row: {
+          caption: string | null
+          comments: number | null
+          created_at: string
+          hashtags: string[] | null
+          id: string
+          ig_shortcode: string
+          likes: number | null
+          media_type: string | null
+          notes: string | null
+          owner_username: string | null
+          permalink: string | null
+          rating: number | null
+          tags: string[] | null
+          thumbnail_path: string | null
+          updated_at: string
+          views: number | null
+          workspace_id: string
+        }
+        Insert: {
+          caption?: string | null
+          comments?: number | null
+          created_at?: string
+          hashtags?: string[] | null
+          id?: string
+          ig_shortcode: string
+          likes?: number | null
+          media_type?: string | null
+          notes?: string | null
+          owner_username?: string | null
+          permalink?: string | null
+          rating?: number | null
+          tags?: string[] | null
+          thumbnail_path?: string | null
+          updated_at?: string
+          views?: number | null
+          workspace_id: string
+        }
+        Update: {
+          caption?: string | null
+          comments?: number | null
+          created_at?: string
+          hashtags?: string[] | null
+          id?: string
+          ig_shortcode?: string
+          likes?: number | null
+          media_type?: string | null
+          notes?: string | null
+          owner_username?: string | null
+          permalink?: string | null
+          rating?: number | null
+          tags?: string[] | null
+          thumbnail_path?: string | null
+          updated_at?: string
+          views?: number | null
+          workspace_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "media_items_workspace_id_fkey"
+            columns: ["workspace_id"]
+            isOneToOne: false
+            referencedRelation: "workspaces"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      shares: {
+        Row: {
+          board_id: string | null
+          created_at: string
+          created_by: string
+          id: string
+          media_item_id: string | null
+          share_id: string
+          share_type: string
+        }
+        Insert: {
+          board_id?: string | null
+          created_at?: string
+          created_by: string
+          id?: string
+          media_item_id?: string | null
+          share_id?: string
+          share_type: string
+        }
+        Update: {
+          board_id?: string | null
+          created_at?: string
+          created_by?: string
+          id?: string
+          media_item_id?: string | null
+          share_id?: string
+          share_type?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "shares_board_id_fkey"
+            columns: ["board_id"]
+            isOneToOne: false
+            referencedRelation: "boards"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "shares_media_item_id_fkey"
+            columns: ["media_item_id"]
+            isOneToOne: false
+            referencedRelation: "media_items"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      workspaces: {
+        Row: {
+          created_at: string
+          id: string
+          plan: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          plan?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          plan?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      get_user_workspace_id: { Args: never; Returns: string }
     }
     Enums: {
       [_ in never]: never
